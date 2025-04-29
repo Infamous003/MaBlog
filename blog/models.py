@@ -18,8 +18,8 @@ class Post(models.Model):
         ('other', 'Other'),
     ]
 
-    title = models.CharField(max_length=120)
-    subtitle = models.CharField(max_length=50, null=True, blank=True)
+    title = models.CharField(max_length=130)
+    subtitle = models.CharField(max_length=70, blank=True)
     content = models.TextField()
     tags = models.CharField(max_length=50, choices=tags, default='other')
     created_at = models.DateTimeField(auto_now_add=True)
