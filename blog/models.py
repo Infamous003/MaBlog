@@ -1,0 +1,28 @@
+from django.db import models
+
+# Create your models here.
+
+class Post(models.Model):
+    tags = [
+        ('tech', 'Tech'),
+        ('cs', 'Computer Science'),
+        ('ai', 'AI'),
+        ('bio', 'Biology'),
+        ('music', 'Music'),
+        ('movies', 'Movies'),
+        ('psychology', 'Psychology'),
+        ('history', 'History'),
+        ('books', 'Books & Literature'),
+        ('fiction', 'Fiction'),
+        ('gaming', 'Gaming'),
+        ('other', 'Other'),
+    ]
+
+    title = models.CharField(max_length=64)
+    content = models.TextField()
+    tags = models.CharField(max_length=50, choices=tags, default='other')
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
