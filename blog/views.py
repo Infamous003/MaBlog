@@ -12,6 +12,6 @@ def post_detail(request, id):
     # try:
     #     post = get_object_or_404(Post, id=id)
     # except Http404:
-    #     return render(request, 'error.html')
+    #     return render(request, '404.html')
     post = get_object_or_404(Post, id=id)
     return render(request, 'blog/post.html', {'post': post})
