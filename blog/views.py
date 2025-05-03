@@ -4,8 +4,14 @@ from .forms import PostForm
 # Create your views here.
 
 def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'index.html', {'posts': posts})
+    selected_filter = request.GET.get('filter')
+
+    if selected_filter == 'oldest':
+        posts = Post.objects.order_by('created_at')
+    else:
+        posts = Post.objects.order_by('-created_at')
+
+    return render(request, 'index.html', {'posts': posts, 'selected_filter': selected_filter})
 
 def post_detail(request, id):
     post = Post.objects.get(id=id)
