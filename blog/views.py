@@ -22,3 +22,15 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_create.html', {'form': form})
+
+def post_edit(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save()
+            post.save()
+            return redirect('post_detail', id=post.id)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form})

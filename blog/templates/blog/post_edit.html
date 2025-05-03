@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Edit post
+{% endblock %}
+
+{% block header %}
+    <h1>{{ post.title }}</h1>
+    <h2 class="subheading">{{ post.subtitle }}</h2>
+    <span class="meta">
+        Posted by
+        <a href="#!">Start Bootstrap</a>
+        on {{ post.created_at.date }}
+    </span>
+{% endblock %}
+
+<!-- This block sets the image for the url function. background: url() -->
+{% block img %}
+{% static 'img/post-bg.jpg' %}
+{% endblock %}
+
+{% block content %}
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="my-5">
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br />
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
