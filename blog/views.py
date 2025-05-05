@@ -47,7 +47,6 @@ def post_edit(request, id):
             form = PostForm(instance=post)
         else:
             raise PermissionDenied()
-            # return redirect('user_register')
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_delete(request, id):
