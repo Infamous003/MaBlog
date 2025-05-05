@@ -11,7 +11,7 @@ def post_list(request):
     else:
         posts = Post.objects.order_by('-created_at')
 
-    return render(request, 'index.html', {'posts': posts, 'selected_filter': selected_filter})
+    return render(request, 'users/user_posts.html', {'posts': posts, 'selected_filter': selected_filter})
 
 def post_detail(request, id):
     post = Post.objects.get(id=id)
