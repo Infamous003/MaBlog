@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock title %}
+
+{% block header %}
+    <h1>MaBlog</h1>
+    <span class="subheading">Register Now</span>
+    <span class="subheading">Theme by Start Bootstrap</span>
+{% endblock %}
+
+{% block content %}
+    <main class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="my-5">
+                        <form id="contactForm" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <br />
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Sign-up</button>
+                        
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
