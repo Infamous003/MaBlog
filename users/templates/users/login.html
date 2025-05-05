@@ -19,8 +19,9 @@
                             {{ form.as_p }}
                             <br />
                             <!-- Submit Button-->
-                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Sign-up</button>
-                        
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Login</button>
+                            <p>Don't already have an account? <a href="{% url 'user_register' %}">Sign-up</a></p>
+                            
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
