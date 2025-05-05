@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
+from django.core.exceptions import PermissionDenied
 # Create your views here.
 
 def post_list(request):
@@ -22,11 +23,15 @@ def post_create(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
-            post = form.save()
+            post = form.save(commit=False)
+            post.author = request.user
             post.save()
             return redirect('post_detail', id=post.id)
     else:
-        form = PostForm()
+        if request.user.is_authenticated:
+            form = PostForm()
+        else:
+            return redirect('user_register')
     return render(request, 'blog/post_create.html', {'form': form})
 
 def post_edit(request, id):
@@ -38,14 +43,19 @@ def post_edit(request, id):
             post.save()
             return redirect('post_detail', id=post.id)
     else:
-        form = PostForm(instance=post)
+        if request.user.is_authenticated:
+            form = PostForm(instance=post)
+        else:
+            raise PermissionDenied()
+            # return redirect('user_register')
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_delete(request, id):
-    post = get_object_or_404(Post, id=id)
-
-    post.delete()
-    return redirect('post_list')
-
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=id)
+        post.delete()
+        return redirect('post_list')
+    else:
+        raise PermissionDenied()
 
     
