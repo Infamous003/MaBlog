@@ -51,7 +51,7 @@ def post_edit(request, id):
 
 def post_delete(request, id):
     if request.user.is_authenticated:
-        post = get_object_or_404(Post, id=id)
+        post = get_object_or_404(Post, id=id, author=request.user)
         post.delete()
         return redirect('post_list')
     else:
