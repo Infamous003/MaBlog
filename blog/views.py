@@ -8,11 +8,11 @@ def post_list(request):
     selected_filter = request.GET.get('filter')
 
     if selected_filter == 'oldest':
-        posts = Post.objects.order_by('created_at')
+        posts = Post.objects.order_by('created_at').filter(author=request.user)
     else:
-        posts = Post.objects.order_by('-created_at')
+        posts = Post.objects.order_by('-created_at').filter(author=request.user)
 
-    return render(request, 'users/user_posts.html', {'posts': posts, 'selected_filter': selected_filter})
+    return render(request, 'users/user_posts.html', {'posts': list(posts), 'selected_filter': selected_filter})
 
 def post_detail(request, id):
     post = Post.objects.get(id=id)
@@ -35,7 +35,7 @@ def post_create(request):
     return render(request, 'blog/post_create.html', {'form': form})
 
 def post_edit(request, id):
-    post = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, id=id, author=request.user)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
