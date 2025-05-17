@@ -1,0 +1,70 @@
+from django.utils import timezone
+
+eren = User.objects.create_user(username='Eren', email='eren@surveycorps.com', password='tatakae123')
+mikasa = User.objects.create_user(username='Mikasa', email='mikasa@surveycorps.com', password='ereh1234')
+levi = User.objects.create_user(username='Levi', email='levi@surveycorps.com', password='cleanfreak42')
+hange = User.objects.create_user(username='Hange', email='hange@surveycorps.com', password='titanresearch9')
+armin = User.objects.create_user(username='Armin', email='armin@surveycorps.com', password='strategist789')
+
+Post.objects.create(
+    author=eren,
+    title='The Cage of Our Existence',
+    subtitle='Why walls are meant to be broken',
+    content='''Every day I wake up looking at these accursed walls, I'm reminded of how we're living like livestock.\n\nThe government tells us we're safe, that we should be grateful for this prison. But what kind of life is this?\n\nI can still remember my mother's face that day... the day the Colossal Titan appeared. That's when I understood -\ntrue safety doesn't come from hiding behind walls. It comes from destroying whatever threatens your freedom.\n\nEven if that means becoming a monster myself. I'll keep moving forward, until all my enemies are destroyed.''',
+    tags='psychology',
+    created_at=timezone.datetime(2023, 5, 15, 10, 30)
+)
+
+Post.objects.create(
+    author=mikasa,
+    title='ODM Gear Mastery: The Ackerman Method',
+    subtitle='Techniques that saved my life countless times',
+    content='''Many cadets ask me how I maneuver so effortlessly with ODM gear. Here's what they don't teach you in training:\n\n1. Your center of gravity shifts constantly - anticipate this by feeling the gear's tension points\n2. Never look at your anchors - your body should know where they are instinctively\n3. The kill comes from your hips, not your arms - twist your torso for maximum blade velocity\n\nWhen Eren and I were trapped in Trost district, these techniques allowed me to eliminate 11 titans in succession without\nneeding to refill my gas. Remember - hesitation leads to death. Your body knows what to do before your mind does.''',
+    tags='tech',
+    created_at=timezone.datetime(2023, 6, 2, 14, 15)
+)
+
+Post.objects.create(
+    author=levi,
+    title='Cleanliness in the Field: A Matter of Life and Death',
+    subtitle="Why I won't tolerate slobs in my squad",
+    content='''Let me make this crystal clear - your filthy habits will get people killed. I don't care if you think war is an excuse for being disgusting. Here's why cleanliness matters:\n\n• Blood on your blades reduces sharpness by up to 40% (tested this myself)\n• Dirty gear jams at the worst possible moments (seen too many recruits die this way)\n• Infection kills more soldiers than titans in long expeditions\n\nWhen Erwin entrusted me with the Special Operations Squad, my first order was to scrub the barracks floor.\nNot because I'm obsessive - because discipline in small things creates discipline in battle.\nThe difference between living and dying often comes down to who maintained their gear properly.''',
+    tags='psychology',
+    created_at=timezone.datetime(2023, 4, 28, 8, 45)
+)
+
+Post.objects.create(
+    author=hange,
+    title='Titan Biology: The 7 Mysteries That Defy Explanation',
+    subtitle='My decade of research summarized',
+    content='''After dissecting 47 titans and observing hundreds more, here are the phenomena that still keep me awake at night:\n\n1. Weight Discrepancy - A 15-meter titan should weigh ~100 tons, but their footsteps suggest <5 tons\n2. Thermal Nullification - They generate no body heat despite constant muscle activity\n3. Photosynthetic Traits - Their skin shows chloroplast-like structures yet they consume humans\n4. Instant Vaporization - Upon death, they disappear completely within 13 seconds\n5. Neural Network - No central brain, yet coordinated movement suggests distributed intelligence\n6. Selective Digestion - They ignore most animals, specifically targeting humans\n7. The Coordinate - How some can control others remains completely unexplained\n\nMoblit always warned me about getting too close... but how could I resist such fascinating creatures?\nEvery answer just leads to more questions!''',
+    tags='bio',
+    created_at=timezone.datetime(2023, 7, 10, 19, 20)
+)
+
+Post.objects.create(
+    author=armin,
+    title='The True Purpose of the Three Walls',
+    subtitle='Evidence they were designed to fail',
+    content='''Conventional history says the walls were built to protect humanity. But my analysis of their construction suggests a darker purpose:\n\n• Wall Maria's districts are disproportionately agricultural - they were feeding the interior\n• The population distribution matches a sacrificial outer layer protecting a core\n• Geological surveys show the walls contain colossal titans - meaning they're weapons, not just barriers\n\nThis leads to an uncomfortable conclusion: Our ancestors didn't build the walls to save everyone.\nThey built them to preserve a select few while the outer population served as buffers.\nEren thinks the enemy is beyond the walls... but what if the real threat has been inside all along?''',
+    tags='history',
+    created_at=timezone.datetime(2023, 8, 5, 16, 10)
+)
+
+Post.objects.create(
+    author=eren,
+    title='The Weight of a Promise',
+    subtitle='That day we swore to exterminate them all',
+    content='''Armin and I used to dream about seeing the ocean together. Now I understand what that really means.\nThe ocean isn't freedom - it's just another barrier. Beyond it lies enemies who want us dead simply for existing.\n\nWhen I kissed Historia's hand, I saw everything - the past, the future, the endless cycle of hatred.\nMikasa thinks there's another way, but she's wrong. After everything they've done to us...\nAfter what happened to my mother, to Hannes, to Levi squad...\n\nThere is no negotiation. There is only the Rumbling.''',
+    tags='psychology',
+    created_at=timezone.datetime(2023, 9, 1, 23, 55)
+)
+
+Post.objects.create(
+    author=mikasa,
+    title='The Meaning of This Scarf',
+    subtitle='More than just fabric',
+    content='''The day Eren wrapped this scarf around me, I was ready to die. The world had taken everything from me; my parents, my home, any sense of safety. But he gave me a reason to keep fighting.\n\nPeople think I'm blindly loyal, but that's not it. Every time I feel the wool against my skin, I remember:\n• The boy who fought human traffickers for a stranger\n• The determination in his eyes when he said "I'll wrap it around you as many times as you want"\n• The promise that I would never be alone again\n\nThat's why I protect him. Not because of blood or duty, but because the world needs people like Eren; people who fight for others without hesitation. Even if he's lost his way... I still believe in that boy.''',
+    tags='other',
+    created_at=timezone.datetime(2023, 9, 15, 12, 30)
+)
