@@ -8,9 +8,9 @@ def post_list(request):
     selected_filter = request.GET.get('filter')
 
     if selected_filter == 'oldest':
-        posts = Post.objects.order_by('created_at').filter(author=request.user)
+        posts = Post.objects.order_by('created_at')
     else:
-        posts = Post.objects.order_by('-created_at').filter(author=request.user)
+        posts = Post.objects.order_by('-created_at')
 
     return render(request, 'users/user_posts.html', {'posts': list(posts), 'selected_filter': selected_filter})
 
