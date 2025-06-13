@@ -40,9 +40,9 @@ I built this project to learn Django framework. I've implemented basic CRUD func
     ```python manage.py runserver```
 - Go to http://127.0.0.1:8000/
 
-![Screenshot] (./images/1.png)
-![Screenshot] (./images/2.png)
-![Screenshot] (./images/3.png)
-![Screenshot] (./images/4.png)
-![Screenshot] (./images/5.png)
-![Screenshot] (./images/6.png)
+![Screenshot] (./screenshots/1.png)
+![Screenshot] (./screenshots/2.png)
+![Screenshot] (./screenshots/3.png)
+![Screenshot] (./screenshots/4.png)
+![Screenshot] (./screenshots/5.png)
+![Screenshot] (./screenshots/6.png)
